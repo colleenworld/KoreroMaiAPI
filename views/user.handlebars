@@ -1,0 +1,19 @@
+<script>
+    $(document).ready(function () {
+        $('#createUser').parsley()
+    })
+</script>
+
+<div id="content"><div id="searchform">
+    <h2>Welcome to Kōrero Mai </h2>
+    <h4>{{message}}</h4>
+    <form method="post" action="/user" id="createUser" data-parsley-validate="">
+        <label><span>User name</span><input type="text" name="userName" style="width: 15em"	data-parsley-length="[6, 15]" data-parsley-type="alphanum" data-parsley-error-message="Your user name needs to be between 6 and 15 alphanumeric characters"></label>
+        <label><span>Email</span><input type="text" name="email" id="email" style="width: 15em" data-parsley-type="email"></label>
+        <label><span>Confirm email</span><input type="text" name="email2" id="email2" style="width: 15em" data-parsley-equalto="#email" data-parsley-error-message="Email values do not match"></label>
+        <label><span>Password</span><input type="password" id="password" name="password" style="width: 15em" data-parsley-pattern="(?=^.{8,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" data-parsley-error-message="Password should have between 8 and 20 characters, and contain at least one upper-case letter, one lower-case letter, and one digit"></label>
+        <label><span>Confirm Password</span><input type="password" id="password2" name="password2" style="width: 15em"data-parsley-equalto="#password" data-parsley-error-message="Password values do not match"></label>
+        <p><button type="submit" id="user">Submit</button></p>
+    </form>
+</div>
+</div>
